@@ -1,0 +1,10 @@
+<h1>Kittens</h1>
+
+<% @kittens.each do |kitten| %>
+    <div>
+        <h4><%= kitten.name %></h4>
+        <p>Age: <%= kitten.age %></p>
+        <p>Cuteness: <%= kitten.cuteness %></p>
+        <p>Softness: <%= kitten.softness %></p>
+    </div>
+<% end %>
