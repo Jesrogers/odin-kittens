@@ -25,11 +25,24 @@ class KittensController < ApplicationController
     end
 
     def edit
+        @kitten = Kitten.find(params[:id])
     end
 
     def update
+        @kitten = Kitten.find(params[:id])
+
+        if @kitten.update(kitten_params)
+            redirect_to @kitten, notice: "Kitten updated!"
+        else
+            flash.now.alert = "Error updating kitten"
+            render :edit
+        end
     end
 
     def destroy
+        @kitten = Kitten.find(params[:id])
+        @kitten.destroy
+
+        redirect_to root_path, notice: "The poor kitten was destroyed"
     end
 end
